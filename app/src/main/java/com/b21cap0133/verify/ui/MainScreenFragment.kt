@@ -1,4 +1,4 @@
-package com.b21cap0133.verify
+package com.b21cap0133.verify.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.b21cap0133.verify.databinding.FragmentFirstBinding
+import com.b21cap0133.verify.R
+import com.b21cap0133.verify.databinding.FragmentMainScreenBinding
 import org.imaginativeworld.whynotimagecarousel.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.OnItemClickListener
 
 
-class FirstFragment : Fragment() {
-    private var _binding: FragmentFirstBinding? = null
+class MainScreenFragment : Fragment() {
+    private var _binding: FragmentMainScreenBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -27,7 +28,7 @@ class FirstFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -82,6 +83,9 @@ class FirstFragment : Fragment() {
         }
         binding.iconAbout.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_FirstFragment_to_aboutFragment)
+        }
+        binding.cardChat.setOnClickListener{
+            view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
         }
     }
 }

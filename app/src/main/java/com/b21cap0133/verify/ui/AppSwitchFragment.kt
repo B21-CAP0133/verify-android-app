@@ -1,12 +1,12 @@
-package com.b21cap0133.verify
+package com.b21cap0133.verify.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.b21cap0133.verify.R
 import com.b21cap0133.verify.databinding.FragmentAppSwitchBinding
-import com.b21cap0133.verify.databinding.FragmentFirstBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -31,7 +31,7 @@ class AppSwitchFragment : Fragment() {
     private fun showLayout() {
         var image: Int = R.drawable.logo_verify_big
         var text = "Pergi ke halaman verify"
-        when (arguments?.getInt(FirstFragment.IDENTIFIER)){
+        when (arguments?.getInt(MainScreenFragment.IDENTIFIER)){
             1 -> {
                 image = R.drawable.turnbackhoax
                 text = "Pergi ke web turnbackhoax"

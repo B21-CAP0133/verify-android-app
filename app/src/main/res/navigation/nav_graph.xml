@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.b21cap0133.verify.FirstFragment"
+        android:name="com.b21cap0133.verify.ui.MainScreenFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_main_screen">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -20,12 +20,15 @@
         <action
             android:id="@+id/action_FirstFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_checkHoaxFragment"
+            app:destination="@id/checkHoaxFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.b21cap0133.verify.SecondFragment"
+        android:name="com.b21cap0133.verify.ui.HoaxEduFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_hoax_edu">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
@@ -33,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/appSwitchFragment"
-        android:name="com.b21cap0133.verify.AppSwitchFragment"
+        android:name="com.b21cap0133.verify.ui.AppSwitchFragment"
         android:label="@string/app_switch_label"
         tools:layout="@layout/fragment_app_switch" >
         <action
@@ -45,11 +48,20 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.b21cap0133.verify.AboutFragment"
+        android:name="com.b21cap0133.verify.ui.AboutFragment"
         android:label="@string/about_fragment_label"
         tools:layout="@layout/fragment_about" >
         <action
             android:id="@+id/action_aboutFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkHoaxFragment"
+        android:name="com.b21cap0133.verify.ui.CheckHoaxFragment"
+        android:label="Cek Hoax"
+        tools:layout="@layout/fragment_check_hoax" >
+        <action
+            android:id="@+id/action_checkHoaxFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
