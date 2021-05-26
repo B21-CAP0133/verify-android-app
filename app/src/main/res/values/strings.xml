@@ -28,10 +28,9 @@
     <string name="ketika_informasi_atau_gambar_asli_dimanipulasi_untuk_menipu">Ketika informasi atau gambar asli dimanipulasi untuk menipu</string>
     <string name="konteks_yang_salah">Konteks Yang Salah</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_switch_label" />
     <string name="about_fragment_label">Tentang Kami</string>
     <string name="about_text">Arus informasi melalui internet yang tinggi membuat masyarakat rawan terkena hoax. Masyarakat Indonesia cenderung mempercayai informasi yang didapat di internet tanpa melakukan validasi terlebih dahulu. Hoax adalah informasi palsu yang ditujukan untuk menyesatkan pembacanya. Berita yang bersifat hoax dapat menyebabkan kepanikan di masyarakat dan kerugian lainnya. Oleh karenanya, diperlukan suatu platform yang dapat digunakan untuk memvalidasi setiap informasi dan ramah digunakan oleh masyarakat. Platform ini diharapkan dapat mengurangi berita-berita hoax dan dapat membantu platform yang sudah tersedia seperti turnbackhoax dan jalahoax.</string>
-    <string name="textbox_hint">メッセージを入力..</string>
+    <string name="textbox_hint">Ketikkan sebuah pesan</string>
     <string name="send">SEND</string>
 </resources>
