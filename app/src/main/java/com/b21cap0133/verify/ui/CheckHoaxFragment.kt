@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.b21cap0133.verify.databinding.FragmentCheckHoaxBinding
+import com.b21cap0133.verify.domain.Request
 import com.b21cap0133.verify.messaging.ReceiveItems
 import com.b21cap0133.verify.messaging.SendItems
 import com.b21cap0133.verify.model.Message
@@ -29,12 +30,13 @@ class CheckHoaxFragment : Fragment() {
         recyclerView.adapter = adapter
         initialMessage()
         viewBind.buttonSend.setOnClickListener {
-            val user = viewBind.textInput.text.toString()
-            val message = Message("me", user)
+            val userInput = viewBind.textInput.text.toString()
+            val message = Message("me", userInput)
+            val requestBody = Request(userInput)
             val send = SendItems(message)
             adapter.add(send)
             viewBind.textInput.text.clear()
-            receiveAutoResponse(user)
+            receiveAutoResponse(requestBody)
         }
     }
 
@@ -48,80 +50,20 @@ class CheckHoaxFragment : Fragment() {
     }
 
     //this is demo with github api will change later
-    private fun receiveAutoResponse(user: String) {
-        val pattern = Regex("\\s+")
-        val normalized = pattern.split(user)
-        if (normalized.size > 1){
-            if (normalized[0] == "!search"){
-                val data = checkViewModel.getResult(normalized[1])
-                data.observe(viewLifecycleOwner, {
-                    if (it.username != "notfound404"){
-                        var content = "We found ${it.username}"
-                        content += if (it.name.isNullOrBlank()){
-                            ", but we don't know their name"
-                        }else{
-                            ", their name is ${it.name}"
-                        }
-                        content += if (it.company.isNullOrBlank()){
-                            ", we don't have their company information"
-                        }else{
-                            ", and they works at ${it.company}"
-                        }
-                        content += if (it.location.isNullOrBlank()){
-                            " and finally they doesn't share their location information."
-                        }else{
-                            ", and finally he is currently at ${it.location} region."
-                        }
-                        val receive = Message("server", content)
-                        val receiveItem = ReceiveItems(receive)
-                        adapter.add(receiveItem)
-                    }else{
-                        val content = "We did not find anything"
-                        val receive = Message("server", content)
-                        val receiveItem = ReceiveItems(receive)
-                        adapter.add(receiveItem)
-                    }
-                    //kill observable so no double/triple/multiple response
-                    data.removeObservers(viewLifecycleOwner)
-                })
+    private fun receiveAutoResponse(user: Request) {
+        val data = checkViewModel.getResult(user)
+        data.observe(viewLifecycleOwner, {
+            val text = if (it.judul != "notfound404"){
+                 "Hasil pencarian menemukan berita sebagai berikut:\n${it.judul}\nTanggal berita: ${it.tanggalBerita}\nKeterangan: ${it.berita}\nLink selengkapnya: ${it.linkBerita}"
             }else{
-                val receive = Message("server", "unknown syntax")
-                val receiveItem = ReceiveItems(receive)
-                adapter.add(receiveItem)
+               "Kami tidak menemukan berita tersebut"
             }
-        }else{
-            val data = checkViewModel.getResult(user)
-            data.observe(viewLifecycleOwner, {
-                if (it.username != "notfound404"){
-                    var content = "We found ${it.username}"
-                    content += if (it.name.isNullOrBlank()){
-                        ", but we don't know their name"
-                    }else{
-                        ", their name is ${it.name}"
-                    }
-                    content += if (it.company.isNullOrBlank()){
-                        ", we don't have their company information"
-                    }else{
-                        ", and they works at ${it.company}"
-                    }
-                    content += if (it.location.isNullOrBlank()){
-                        " and finally they doesn't share their location information."
-                    }else{
-                        ", and finally he is currently at ${it.location} region."
-                    }
-                    val receive = Message("server", content)
-                    val receiveItem = ReceiveItems(receive)
-                    adapter.add(receiveItem)
-                }else{
-                    val content = "We did not find anything"
-                    val receive = Message("server", content)
-                    val receiveItem = ReceiveItems(receive)
-                    adapter.add(receiveItem)
-                }
-                //kill observable so no double/triple/multiple response
-                data.removeObservers(viewLifecycleOwner)
-            })
-        }
+            /*val abc = "$text\n${user.message}\n${it.judul}"*/
+            val receive = Message("server", text)
+            val receiveItem = ReceiveItems(receive)
+            adapter.add(receiveItem)
+            data.removeObservers(viewLifecycleOwner)
+        })
         /*GlobalScope.launch(Dispatchers.Main) {
             delay(1000)
             val receive = Message("server", "ご覧いただきありがとうございます！この一回きりのパフォーマンスに全身全霊で挑みました。少しでも皆さんの明日を照らす青い光となれたら嬉しいです。(ikura)")

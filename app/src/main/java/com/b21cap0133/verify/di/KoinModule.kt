@@ -26,7 +26,8 @@ val netModule = module{
     }
     single{
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com")
+            .baseUrl("http://5130f90d26e2.ngrok.io/")
+            .client(get())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()

@@ -47,6 +47,9 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.8.0"
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
 
+    //TFLite experimental
+    implementation 'org.tensorflow:tensorflow-lite:2.5.0'
+
     //koin
     implementation "io.insert-koin:koin-android:3.0.2"
     implementation "io.insert-koin:koin-android-ext:3.0.2"
@@ -78,13 +81,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //leak canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 
     //tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    //kapts
+    //kapt
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
 }

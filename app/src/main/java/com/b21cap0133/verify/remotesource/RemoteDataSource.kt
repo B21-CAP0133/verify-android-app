@@ -11,19 +11,38 @@ import io.reactivex.subjects.PublishSubject
 
 class RemoteDataSource(private val retrofit: RemoteInterface): RemoteDataInterface {
     @SuppressLint("CheckResult")
-    override fun getResult(content: String): Flowable<ApiResponse<UserDataEntity>> {
-        val returnValue = PublishSubject.create<ApiResponse<UserDataEntity>>()
-        val call = retrofit.fetchProfile(content)
+    override fun getResult(content: RequestEntity): Flowable<ApiResponse<NewsResponse>> {
+        val returnValue = PublishSubject.create<ApiResponse<NewsResponse>>()
+        val call = retrofit.fetchNews(content)
         call
             .subscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .take(1)
             .subscribe ({ response ->
-                returnValue.onNext(if (response.username.isNotEmpty()) ApiResponse.Success(response) else ApiResponse.Empty)
+                returnValue.onNext(if (response.judul.isNotEmpty()) ApiResponse.Success(response) else ApiResponse.Empty)
             }, { error ->
                 returnValue.onNext(ApiResponse.Error(error.message.toString()))
                 Log.e("RemoteDataSource", error.toString())
             })
         return returnValue.toFlowable(BackpressureStrategy.BUFFER)
     }
+
+    /*@SuppressLint("CheckResult")
+    override fun getResult(content: RequestEntity): Flowable<ApiResponse<NewsResponse>> {
+        val returnValue = PublishSubject.create<ApiResponse<NewsResponse>>()
+        val call = retrofit.testFetchNews(content.message)
+        call
+            .subscribeOn(Schedulers.computation())
+            .observeOn(AndroidSchedulers.mainThread())
+            .take(1)
+            .subscribe ({ response ->
+                Log.d("OwO", "getResult: $response")
+                returnValue.onNext(if (response.judul.isNotEmpty()) ApiResponse.Success(response) else ApiResponse.Empty)
+            }, { error ->
+                Log.d("OwO", "getResult: ${error.message}")
+                returnValue.onNext(ApiResponse.Error(error.message.toString()))
+                Log.e("RemoteDataSource", error.toString())
+            })
+        return returnValue.toFlowable(BackpressureStrategy.BUFFER)
+    }*/
 }
