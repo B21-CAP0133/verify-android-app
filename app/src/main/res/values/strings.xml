@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">VERIFY</string>
-    <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Beranda</string>
     <string name="second_fragment_label">Edukasi Hoax</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
     <string name="indonesian_fact_verification_system">Indonesian Fact Verification System</string>
     <string name="turnbackhoax_desc">TurnBackHoax</string>
     <string name="cekfakta_desc">Cekfakta.com</string>

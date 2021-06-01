@@ -8,14 +8,6 @@ import com.b21cap0133.verify.remotesource.RequestEntity
 import com.b21cap0133.verify.remotesource.UserDataEntity
 
 object ClassMapper{
-    fun mapEntityToDomain(entity: UserDataEntity): UserData {
-        return UserData(
-            entity.username,
-            entity.name,
-            entity.location,
-            entity.company
-            )
-    }
 
     fun mapResponseToDomain(response: NewsResponse): News{
         return News(
@@ -26,9 +18,4 @@ object ClassMapper{
         )
     }
 
-    fun mapDomainToEntity(domain: Request): RequestEntity{
-        return RequestEntity(
-            domain.message
-        )
-    }
 }

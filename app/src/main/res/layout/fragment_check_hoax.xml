@@ -18,7 +18,8 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_send"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
 
     <ImageButton
         android:id="@+id/button_send"
@@ -33,7 +34,7 @@
         android:contentDescription="@string/send" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chat_recycler_view"
+        android:id="@+id/chatRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

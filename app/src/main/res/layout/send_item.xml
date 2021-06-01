@@ -7,7 +7,7 @@
     android:layout_margin="8dp">
 
     <TextView
-        android:id="@+id/send_text"
+        android:id="@+id/sendText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxWidth="250dp"

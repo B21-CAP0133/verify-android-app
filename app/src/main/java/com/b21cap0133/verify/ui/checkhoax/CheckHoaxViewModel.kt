@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.b21cap0133.verify.domain.News
 import com.b21cap0133.verify.domain.RepositoryInterface
 import com.b21cap0133.verify.domain.Request
-import com.b21cap0133.verify.domain.UserData
 
 class CheckHoaxViewModel(private val repository: RepositoryInterface): ViewModel() {
     fun getResult(content: Request): LiveData<News> {

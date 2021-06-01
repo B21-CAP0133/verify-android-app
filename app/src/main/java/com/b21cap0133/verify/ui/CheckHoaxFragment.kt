@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.b21cap0133.verify.databinding.FragmentCheckHoaxBinding
 import com.b21cap0133.verify.domain.Request
+import com.b21cap0133.verify.messaging.HintItem
 import com.b21cap0133.verify.messaging.ReceiveItems
 import com.b21cap0133.verify.messaging.SendItems
 import com.b21cap0133.verify.model.Message
@@ -49,7 +50,7 @@ class CheckHoaxFragment : Fragment() {
         return viewBind.root
     }
 
-    //this is demo with github api will change later
+    //this is the thing that makes request and receives result
     private fun receiveAutoResponse(user: Request) {
         val data = checkViewModel.getResult(user)
         data.observe(viewLifecycleOwner, {
@@ -58,10 +59,10 @@ class CheckHoaxFragment : Fragment() {
             }else{
                "Kami tidak menemukan berita tersebut"
             }
-            /*val abc = "$text\n${user.message}\n${it.judul}"*/
             val receive = Message("server", text)
             val receiveItem = ReceiveItems(receive)
             adapter.add(receiveItem)
+            //destroy observer once done
             data.removeObservers(viewLifecycleOwner)
         })
         /*GlobalScope.launch(Dispatchers.Main) {
@@ -72,9 +73,10 @@ class CheckHoaxFragment : Fragment() {
         }*/
     }
 
+    //hint
     private fun initialMessage(){
-        val receive = Message("server", "Type the username or !search username to search an user")
-        val receiveItem = ReceiveItems(receive)
+        val receive = Message("hint", "Anda dapat memasukkan judul berita ataupun topik yang ingin dicari tau kebenarannya")
+        val receiveItem = HintItem(receive)
         adapter.add(receiveItem)
     }
 }
