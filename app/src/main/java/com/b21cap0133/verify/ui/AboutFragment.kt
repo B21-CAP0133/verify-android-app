@@ -1,10 +1,11 @@
-package com.b21cap0133.verify
+package com.b21cap0133.verify.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.b21cap0133.verify.R
 
 class AboutFragment : Fragment() {
 

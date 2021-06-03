@@ -1,19 +1,18 @@
-package com.b21cap0133.verify
+package com.b21cap0133.verify.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.b21cap0133.verify.databinding.FragmentSecondBinding
+import androidx.fragment.app.Fragment
+import com.b21cap0133.verify.databinding.FragmentHoaxEduBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class HoaxEduFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentHoaxEduBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,9 +21,9 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentHoaxEduBinding.inflate(inflater, container, false)
         return binding.root
 
     }
