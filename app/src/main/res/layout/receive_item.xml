@@ -14,6 +14,8 @@
         android:background="@drawable/background_receive"
         android:maxWidth="250dp"
         android:padding="16dp"
+        android:ellipsize="end"
+        android:maxLines="4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="ご覧いただきありがとうございます！この一回きりのパフォーマンスに全身全霊で挑みました。少しでも皆さんの明日を照らす青い光となれたら嬉しいです。(ikura)" />

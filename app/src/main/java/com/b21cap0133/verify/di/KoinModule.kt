@@ -26,7 +26,7 @@ val netModule = module{
     }
     single{
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://capstone-deploy-3owb6alr3q-et.a.run.app/")
+            .baseUrl("https://capstone-deploy-3owb6alr3q-et.a.run.app")
             .client(get())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))

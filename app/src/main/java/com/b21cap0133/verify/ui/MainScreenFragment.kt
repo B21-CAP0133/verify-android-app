@@ -1,5 +1,7 @@
 package com.b21cap0133.verify.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +45,12 @@ class MainScreenFragment : Fragment() {
         carousel.onItemClickListener = object : OnItemClickListener {
             override fun onClick(position: Int, carouselItem: CarouselItem) {
                 when (position) {
+                    0 -> {
+                        val url = "https://cekfakta.com/"
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.data = Uri.parse(url)
+                        startActivity(intent)
+                    }
                     1 -> view.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
                 }
             }
@@ -85,6 +93,9 @@ class MainScreenFragment : Fragment() {
             view?.findNavController()?.navigate(R.id.action_FirstFragment_to_aboutFragment)
         }
         binding.cardChat.setOnClickListener{
+            view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
+        }
+        binding.fab.setOnClickListener { view ->
             view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
         }
     }
