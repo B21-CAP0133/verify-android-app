@@ -11,10 +11,6 @@ data class NewsResponse(
     val linkBerita: String = "",
     @SerializedName("tanggal")
     val tanggalBerita: String = "",
-    @SerializedName("penjelasan")
-    val berita: String = "",
-    @SerializedName("kategori")
-    val kategori: String? = "",
     @SerializedName("preview")
     val preview: String = ""
 )

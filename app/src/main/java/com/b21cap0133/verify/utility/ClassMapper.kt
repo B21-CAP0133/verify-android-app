@@ -11,8 +11,6 @@ object ClassMapper{
             response.prediksi,
             response.linkBerita,
             response.tanggalBerita,
-            response.berita,
-            response.kategori,
             response.preview
         )
     }

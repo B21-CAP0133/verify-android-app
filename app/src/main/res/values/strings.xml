@@ -29,5 +29,7 @@
     <string name="about_text">Arus informasi melalui internet yang tinggi membuat masyarakat rawan terkena hoax. Masyarakat Indonesia cenderung mempercayai informasi yang didapat di internet tanpa melakukan validasi terlebih dahulu. Hoax adalah informasi palsu yang ditujukan untuk menyesatkan pembacanya. Berita yang bersifat hoax dapat menyebabkan kepanikan di masyarakat dan kerugian lainnya. Oleh karenanya, diperlukan suatu platform yang dapat digunakan untuk memvalidasi setiap informasi dan ramah digunakan oleh masyarakat. Platform ini diharapkan dapat mengurangi berita-berita hoax dan dapat membantu platform yang sudah tersedia seperti turnbackhoax dan jalahoax.</string>
     <string name="textbox_hint">Ketikkan sebuah pesan</string>
     <string name="send">SEND</string>
-    <string name="underline_tooltip_text">&lt;u&gt;Tekan balon chat ini untuk hasil selengkapnya.&lt;/u&gt;</string>
+    <string name="underline_tooltip_text">Tekan balon chat untuk hasil selengkapnya.</string>
+    <string name="check_fakta">Check Fakta</string>
+    <string name="info_selengkapnya">Klik untuk pergi ke sumber berita</string>
 </resources>

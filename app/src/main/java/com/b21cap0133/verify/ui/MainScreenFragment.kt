@@ -17,8 +17,6 @@ import org.imaginativeworld.whynotimagecarousel.OnItemClickListener
 
 class MainScreenFragment : Fragment() {
     private var _binding: FragmentMainScreenBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     companion object {
@@ -87,15 +85,10 @@ class MainScreenFragment : Fragment() {
         }
         binding.iconJaki.setOnClickListener {
             bundle.putInt(IDENTIFIER, 5)
-            view?.findNavController()?.navigate(R.id.action_FirstFragment_to_appSwitchFragment, bundle)
-        }
-        binding.iconAbout.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_FirstFragment_to_aboutFragment)
+            view?.findNavController()
+                ?.navigate(R.id.action_FirstFragment_to_appSwitchFragment, bundle)
         }
         binding.cardChat.setOnClickListener{
-            view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
-        }
-        binding.fab.setOnClickListener { view ->
             view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
         }
     }
