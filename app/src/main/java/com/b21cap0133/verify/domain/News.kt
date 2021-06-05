@@ -5,7 +5,5 @@ data class News(
     val prediksi: String = "",
     val linkBerita: String = "",
     val tanggalBerita: String = "",
-    val berita: String = "",
-    val kategori: String? = "",
     val preview: String = ""
 )

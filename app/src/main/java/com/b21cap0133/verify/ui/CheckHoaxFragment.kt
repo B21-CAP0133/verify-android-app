@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.b21cap0133.verify.R
@@ -53,22 +52,20 @@ class CheckHoaxFragment : Fragment() {
         return viewBind.root
     }
 
-    // Penjelasan: ${it.berita}
     //this is the thing that makes request and receives result
     private fun receiveAutoResponse(user: Request) {
         val data = checkViewModel.getResult(user)
         data.observe(viewLifecycleOwner, {
             val text = if (it.judul != "notfound404"){
                  """
-                     ${HtmlCompat.fromHtml(getString(R.string.underline_tooltip_text), HtmlCompat.FROM_HTML_MODE_LEGACY)}
+                     ${getString(R.string.underline_tooltip_text)}
                      Menurut prediksi kami berita ini ${it.prediksi.subSequence(0,4)}% hoax
                      Ringkasan: ${it.preview}
-                     Link info lebih lanjut: ${it.linkBerita}
                  """.trimIndent()
             }else{
                "Kami tidak menemukan berita tersebut"
             }
-            val receive = Message("server", text)
+            val receive = Message("server", text, it.linkBerita)
             val receiveItem = ReceiveItems(receive)
             adapter.add(receiveItem)
             recyclerView.scrollToPosition(adapter.itemCount - 1)

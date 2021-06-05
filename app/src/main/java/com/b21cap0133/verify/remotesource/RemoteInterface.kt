@@ -7,8 +7,4 @@ interface RemoteInterface {
     @Headers("Content-Type:application/json")
     @POST("/search")
     fun fetchNews(@Body request: RequestEntity): Flowable<NewsResponse>
-
-    /*@Headers("Content-Type:application/json")
-    @GET("/search")
-    fun testFetchNews(@Query("message")message: String): Flowable<NewsResponse>*/
 }

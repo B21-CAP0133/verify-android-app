@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.b21cap0133.verify.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+        binding.bottomNav.setupWithNavController(navController)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
