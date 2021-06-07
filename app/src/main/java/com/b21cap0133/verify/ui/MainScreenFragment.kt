@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.b21cap0133.verify.MainActivity
 import com.b21cap0133.verify.R
 import com.b21cap0133.verify.databinding.FragmentMainScreenBinding
 import org.imaginativeworld.whynotimagecarousel.CarouselItem
@@ -30,11 +31,12 @@ class MainScreenFragment : Fragment() {
     ): View {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val parent: MainActivity = activity as MainActivity
+        parent.hideUpButton()
         val carousel: ImageCarousel = binding.carouselView
         val list = mutableListOf<CarouselItem>()
         list.add(CarouselItem(imageDrawable = R.drawable.banner_1, "Info hoax terbaru"))
@@ -88,8 +90,8 @@ class MainScreenFragment : Fragment() {
             view?.findNavController()
                 ?.navigate(R.id.action_FirstFragment_to_appSwitchFragment, bundle)
         }
-        binding.cardChat.setOnClickListener{
+        /*binding.cardChat.setOnClickListener{
             view?.findNavController()?.navigate(R.id.action_FirstFragment_to_checkHoaxFragment)
-        }
+        }*/
     }
 }

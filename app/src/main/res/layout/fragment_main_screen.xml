@@ -187,9 +187,11 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="96dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="67dp"
                     android:background="#00FFFFFF"
                     android:scaleType="fitXY"
                     android:src="@drawable/logo_jakarta_post"
+                    app:layout_constraintEnd_toStartOf="@+id/icon_jaki"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_turnbackhoax" />
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.b21cap0133.verify.MainActivity
 import com.b21cap0133.verify.R
 import com.b21cap0133.verify.databinding.FragmentCheckHoaxBinding
 import com.b21cap0133.verify.domain.Request
@@ -28,6 +29,8 @@ class CheckHoaxFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val parent: MainActivity = activity as MainActivity
+        parent.hideUpButton()
         recyclerView = viewBind.chatRecyclerView
         recyclerView.adapter = adapter
         initialMessage()
@@ -50,6 +53,11 @@ class CheckHoaxFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentCheckHoaxBinding.inflate(inflater, container, false)
         return viewBind.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     //this is the thing that makes request and receives result

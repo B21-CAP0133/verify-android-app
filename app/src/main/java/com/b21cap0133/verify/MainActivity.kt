@@ -34,4 +34,12 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    fun showUpButton(){
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun hideUpButton(){
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    }
 }

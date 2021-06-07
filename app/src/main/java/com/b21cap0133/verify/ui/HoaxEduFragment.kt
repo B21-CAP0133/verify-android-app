@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.b21cap0133.verify.MainActivity
 import com.b21cap0133.verify.databinding.FragmentHoaxEduBinding
 
 /**
@@ -24,6 +25,8 @@ class HoaxEduFragment : Fragment() {
     ): View {
 
         _binding = FragmentHoaxEduBinding.inflate(inflater, container, false)
+        val parent: MainActivity = activity as MainActivity
+        parent.showUpButton()
         return binding.root
 
     }

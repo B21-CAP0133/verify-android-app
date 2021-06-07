@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.b21cap0133.verify.MainActivity
 import com.b21cap0133.verify.R
 import com.b21cap0133.verify.databinding.FragmentAppSwitchBinding
 import com.bumptech.glide.Glide
@@ -30,7 +31,14 @@ class AppSwitchFragment : Fragment() {
         showLayout()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun showLayout() {
+        val parent: MainActivity = activity as MainActivity
+        parent.showUpButton()
         var image: Int = R.drawable.logo_verify_big
         var text = "Pergi ke halaman verify"
         when (arguments?.getInt(MainScreenFragment.IDENTIFIER)){

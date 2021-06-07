@@ -10,7 +10,7 @@
     <item
         android:id="@+id/checkHoaxFragment"
         android:title="@string/check_fakta"
-        android:icon="@drawable/ic_group_factcheck_menu"
+        android:icon="@drawable/ic_group_33"
         />
     <item
         android:id="@+id/aboutFragment"
